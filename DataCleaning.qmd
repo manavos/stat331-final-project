@@ -1,0 +1,23 @@
+---
+title: "Data Cleaning"
+author: "Ashley, Zoey, Vinithra, Hailey"  
+html:  
+    embed-resources: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  echo: true
+  warning: false
+  message: false
+  error: TRUE
+---
+
+## Data Cleaning
+
+**Life Expectancy Data**
+Here I will load and clean the life expectancy data for the project.
+```{r}
+
+
+```
