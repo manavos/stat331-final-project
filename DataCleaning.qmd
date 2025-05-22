@@ -15,9 +15,32 @@ execute:
 
 ## Data Cleaning
 
-**Life Expectancy Data**
-Here I will load and clean the life expectancy data for the project.
-```{r}
+**Loading Required Packages**
 
+```{r}
+library(tidyverse)
+library(readr)
+library(knitr)
+```
+
+**Life Expectancy Data** Here I will load and clean the life expectancy data for the project.I decided to remove all years with missing values, and decrease sample size to around 100 data points. In addition, I also created a seprate table of average life expectancy for each country per decade.
+
+```{r}
+lex <- read_csv("lex.csv")
+lex <- lex |>
+  select(1,"1950":"2050")
+avg_lex_decade <- lex |>
+  mutate("1950s" = rowMeans(across("1950":"1959"))) |>
+  mutate("1960s" = rowMeans(across("1960":"1969"))) |>
+  mutate("1970s" = rowMeans(across("1970":"1979"))) |>
+  mutate("1980s" = rowMeans(across("1980":"1989"))) |>
+  mutate("1990s" = rowMeans(across("1990":"1999"))) |>
+  mutate("2000s" = rowMeans(across("2000":"2009"))) |>
+  mutate("2010s" = rowMeans(across("2010":"2019"))) |>
+  mutate("2020s" = rowMeans(across("2020":"2029"))) |>
+  mutate("2030s" = rowMeans(across("2030":"2039"))) |>
+  mutate("2040s" = rowMeans(across("2040":"2049"))) |>
+  select(1,"1950s":"2040s")
+kable(head(avg_lex_decade))
 
 ```
