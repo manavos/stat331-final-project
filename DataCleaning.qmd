@@ -23,12 +23,23 @@ library(readr)
 library(knitr)
 ```
 
-**Life Expectancy Data** Here I will load and clean the life expectancy data for the project.I decided to remove all years with missing values, and decrease sample size to around 100 data points. In addition, I also created a seprate table of average life expectancy for each country per decade.
+**Life Expectancy Data** 
+
+Here I will load and clean the life expectancy data for the project.I decided to remove all years with missing values, and decrease sample size to around 100 data points. In addition, I also created a separate table of average life expectancy for each country per decade.
 
 ```{r}
 lex <- read_csv("lex.csv")
-lex <- lex |>
-  select(1,"1950":"2050")
+lex_long <- lex |>
+  select(country,"1950":"2050") |>
+  pivot_longer(cols = !country, 
+               names_to = "year", 
+               values_to = "life_ex")
+```
+
+
+
+
+```{r}
 avg_lex_decade <- lex |>
   mutate("1950s" = rowMeans(across("1950":"1959"))) |>
   mutate("1960s" = rowMeans(across("1960":"1969"))) |>
@@ -42,5 +53,17 @@ avg_lex_decade <- lex |>
   mutate("2040s" = rowMeans(across("2040":"2049"))) |>
   select(1,"1950s":"2040s")
 kable(head(avg_lex_decade))
+```
+
+**Income Share of Poorest 20%**
+
+Loading and cleaning of data for the income share of the poorest 10% by country.
+
+```{r}
+income_share_poorest <- read_csv("income_share_of_poorest_10percent.csv")
+
 
 ```
+
+
+
