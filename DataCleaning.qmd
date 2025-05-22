@@ -55,12 +55,12 @@ avg_lex_decade <- lex |>
 kable(head(avg_lex_decade))
 ```
 
-**Income Share of Poorest 20%**
+**Income Share of Middle 20%**
 
 Loading and cleaning of data for the income share of the poorest 10% by country.
 
 ```{r}
-income_share_poorest <- read_csv("income_share_of_poorest_10percent.csv")
+income_share_middle <- read_csv("income_share_of_middle_20percent.csv")
 
 
 ```
