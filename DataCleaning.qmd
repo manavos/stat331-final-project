@@ -68,5 +68,19 @@ income_share_long <- income_share_middle |>
                values_to = "income_share")
 ```
 
+```{r}
+income_share_means <- income_share_middle |> 
+  mutate("1960s" = rowMeans(across("1963":"1969"))) |>
+  mutate("1970s" = rowMeans(across("1970":"1979"))) |>
+  mutate("1980s" = rowMeans(across("1980":"1989"))) |>
+  mutate("1990s" = rowMeans(across("1990":"1999"))) |>
+  mutate("2000s" = rowMeans(across("2000":"2009"))) |>
+  mutate("2010s" = rowMeans(across("2010":"2011"))) |> 
+  select(1,"1960s":"2010s")
+income_share_means |> 
+  head(10) |> 
+  kable()
+```
+
 
 
