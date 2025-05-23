@@ -70,13 +70,15 @@ income_share_long <- income_share_middle |>
 
 ```{r}
 income_share_means <- income_share_middle |> 
-  mutate("1960s" = rowMeans(across("1963":"1969"))) |>
-  mutate("1970s" = rowMeans(across("1970":"1979"))) |>
-  mutate("1980s" = rowMeans(across("1980":"1989"))) |>
-  mutate("1990s" = rowMeans(across("1990":"1999"))) |>
-  mutate("2000s" = rowMeans(across("2000":"2009"))) |>
-  mutate("2010s" = rowMeans(across("2010":"2011"))) |> 
-  select(1,"1960s":"2010s")
+  mutate("1960s" = rowMeans(across("1963":"1969")), 
+         "1970s" = rowMeans(across("1970":"1979")), 
+         "1980s" = rowMeans(across("1980":"1989")), 
+         "1990s" = rowMeans(across("1990":"1999")), 
+         "2000s" = rowMeans(across("2000":"2009")), 
+         "2010s" = rowMeans(across("2010":"2019")), 
+         "2020s" = rowMeans(across("2020":"2023"))) |>
+  select(1, "1960s":"2020s")
+
 income_share_means |> 
   head(10) |> 
   kable()
@@ -85,10 +87,17 @@ income_share_means |>
 **Joining the Data Set**
 
 ```{r}
-joined_data <- left_join(lex_long, income_share_long,join_by(country==country,year==year))
-joined_data <- joined_data |>
-  filter(!is.na(income_share))|>
-  head(10) |>
+joined_data <- left_join(lex_long, 
+                         income_share_long, 
+                         join_by(country==country,year==year))
+```
+
+```{r}
+joined_data_cleaned <- joined_data |>
+  filter(!is.na(income_share))
+
+joined_data_cleaned |> 
+  head(10) |> 
   kable()
 ```
 
