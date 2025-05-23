@@ -82,5 +82,17 @@ income_share_means |>
   kable()
 ```
 
+**Joining the Data Set**
+
+```{r}
+joined_data <- left_join(lex_long, income_share_long,join_by(country==country,year==year))
+joined_data <- joined_data |>
+  filter(!is.na(income_share))|>
+  head(10) |>
+  kable()
+```
+
+
+
 
 
