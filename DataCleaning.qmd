@@ -37,8 +37,6 @@ lex_long <- lex |>
 ```
 
 
-
-
 ```{r}
 avg_lex_decade <- lex |>
   mutate("1950s" = rowMeans(across("1950":"1959"))) |>
@@ -93,15 +91,42 @@ joined_data <- left_join(lex_long,
 ```
 
 ```{r}
-joined_data_cleaned <- joined_data |>
+joined_data <- joined_data |>
   filter(!is.na(income_share))
 
-joined_data_cleaned |> 
+joined_data |> 
   head(10) |> 
   kable()
 ```
 
 
+##Linear Regression
+
+**Visualizing the Relationship Between Life Expectancy and Income Share of the Middle 20% **
+
+```{r}
+joined_data |>
+  group_by(country) |>
+  mutate(life_ex = mean(life_ex)) |>
+  mutate(income_share = mean(income_share))|>
+  ggplot(aes(x = income_share, 
+             y = life_ex
+             )
+         ) +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  labs(x = "Income Share of the Middle 20%",
+       subtitle = "Life Expectancy(Years)",
+       title = "Relationship Between Income Share of the Middle 20%
+       and Life Expectancy"
+       ) +
+  theme(axis.title.y = element_blank())
+```
+
+**Creating an Animated Plot of How The Relationship Changes Over Time**
+
+```{r}
 
 
+```
 
