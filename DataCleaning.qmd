@@ -143,7 +143,7 @@ data_anim <- joined_data |>
   theme(plot.subtitle = element_text(size = 14),
         plot.title = element_text(hjust = .5)) +
   transition_time(year) +
-  ease_aes("linear")
+  ease_aes("linear") 
   
 
 animate(data_anim, nframes = 61, fps = 2)
