@@ -1,16 +1,17 @@
 ---
 title: "Data Cleaning"
 author: "Ashley, Zoey, Vinithra, Hailey"  
-html:  
+format: 
+  html:
     embed-resources: true
     code-tools: true
     toc: true
 editor: source
 execute: 
+  error: true
   echo: true
-  warning: false
   message: false
-  error: TRUE
+  warning: false
 ---
 
 ## Data Cleaning
