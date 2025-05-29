@@ -6,6 +6,7 @@ format:
     embed-resources: true
     code-tools: true
     toc: true
+    code-fold: true
 editor: source
 execute: 
   error: true
@@ -103,7 +104,7 @@ joined_data |>
 ```
 
 
-##Linear Regression
+## Linear Regression
 
 **Visualizing the Relationship Between Life Expectancy and Income Share of the Middle 20% **
 
@@ -135,4 +136,24 @@ joined_data |>
   geom_point() 
 
 ```
+
+**Fitting a SLR Model**
+
+```{r}
+data_for_lm <- joined_data |>
+  group_by(country) |>
+  mutate(life_ex = mean(life_ex)) |>
+  mutate(income_share = mean(income_share))
+```
+
+```{r}
+project_lm <- lm(life_ex ~ income_share, 
+                 data = data_for_lm)
+
+kable(broom::tidy(project_lm))
+```
+
+This table represents a simple linear regression model of the relationship between *Life Expectancy* and *Income Share of the Middle 20%*. The coefficients shown in the table tell us that if someone's income share is 0, their expected life expectancy is about 50 years. The coefficients also show that for each dollar gained, a person will live about 1.5 years more, on average.
+
+
 
