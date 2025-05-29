@@ -22,6 +22,8 @@ execute:
 library(tidyverse)
 library(readr)
 library(knitr)
+library(gganimate)
+library(broom)
 ```
 
 **Life Expectancy Data** 
@@ -127,7 +129,10 @@ joined_data |>
 **Creating an Animated Plot of How The Relationship Changes Over Time**
 
 ```{r}
-
+joined_data |>
+  ggplot(mapping = aes(x= income_share,
+                       y= life_ex)) +
+  geom_point() 
 
 ```
 
