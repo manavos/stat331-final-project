@@ -132,22 +132,23 @@ joined_data |>
 **Creating an Animated Plot of How The Relationship Changes Over Time**
 
 ```{r}
+library(gifski)
 data_anim <- joined_data |> 
   ggplot(aes(x = income_share, y = life_ex)) +
-  geom_point() +
-  labs(y = "Income Share of The Middle 20%",
-       subtitle = "{frame_time} ",
-       x = "Life Expectancy(Years)",
-       title = "Relationship Between Income Share of The Middle 20% and Life Expectancy for Countries Across Years") +
-  scale_y_continuous(breaks = seq(0, 15, by = 2.5),
-                     labels = paste0("$", seq(0, 15, by = 2.5))) +
+  geom_point(alpha = 0.7, color = "steelblue") +
+  labs(y = "Life Expectancy (Years)",
+       x = "Income Share of Middle 20%",
+       subtitle = "Year: {frame_time}",
+       title = "How the Relationship Between Income Share and Life Expectancy Changes Over Time") +
+  theme_minimal() +
   theme(plot.subtitle = element_text(size = 14),
-        plot.title = element_text(hjust = .5)) +
+        plot.title = element_text(hjust = 0.5)) +
   transition_time(year) +
-  ease_aes("linear") 
-  
+  ease_aes("linear")
 
-animate(data_anim, nframes = 61, fps = 2)
+
+
+animate(data_anim, nframes = 61, fps = 2, renderer = gifski_renderer("income_life_animation.gif"))
 
 ```
 
