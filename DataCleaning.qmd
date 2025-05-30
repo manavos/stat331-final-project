@@ -25,6 +25,7 @@ library(readr)
 library(knitr)
 library(gganimate)
 library(broom)
+library(kableExtra)
 ```
 
 **Life Expectancy Data** 
@@ -168,5 +169,21 @@ kable(broom::tidy(project_lm))
 
 This table represents a simple linear regression model of the relationship between *Life Expectancy* and *Income Share of the Middle 20%*. The coefficients shown in the table tell us that if someone's income share is 0, their expected life expectancy is about 50 years. The coefficients also show that for each dollar gained, a person will live about 1.5 years more, on average.
 
+**Model Fit **
+
+```{r}
+lm_assess <-broom::augment(project_lm)
+r2 <- broom::glance(project_lm)$r.squared
+lm_assess |>
+  ungroup() |>
+  summarize("Variance in Response" = var(life_ex),
+            "Variance of Predicted Values" = var(.fitted),
+            "Variance of Residuals" = var(.resid),
+            RSquared = r2) |>
+  kable(caption = "Model Variances and R-Squared", align = "c") |>
+  kable_styling(
+    position = "center", font_size = 12)
+```
 
 
+As shown in the table above, about 17.57% of variance in life expectancy appears to be explained by income share of the middle 20%. This is fairly large, and though it certainly doesn't seem like a large portion, considering life expectancy is impacted by such a variety of sources, I consider the value we obtained to be impressive.
