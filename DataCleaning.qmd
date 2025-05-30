@@ -139,7 +139,7 @@ data_anim <- joined_data |>
   labs(y = "Life Expectancy (Years)",
        x = "Income Share of Middle 20%",
        subtitle = "Year: {frame_time}",
-       title = "How the Relationship Between Income Share and Life Expectancy Changes Over Time") +
+        title = "Middle 20% Income Share and Life Expectancy Over Time") +
   theme_minimal() +
   theme(plot.subtitle = element_text(size = 14),
         plot.title = element_text(hjust = 0.5)) +
