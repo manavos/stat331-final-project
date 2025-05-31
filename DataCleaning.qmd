@@ -15,6 +15,37 @@ execute:
   warning: false
 ---
 
+## Project Proposal
+
+### Introduction
+Income and life expectancy have historically been shown to be correlated. At age 40, men in the top 1% income bracket are expected to live 14.6 years longer than those in the bottom 1%, and women can expect to live 10.1 years longer (Chetty et. al). We decided to explore the relationship between the income of the poorest 1% and life expectancy at birth to see how this correlation has changed throughout time and in different countries.
+
+We hypothesize a positive relationship between Income Share of the Poorest 20% and Life Expectancy at Birth at the country level. As the share of total national income received by the bottom 20% increases, life expectancy is expected to rise. We expect this relationship as income inequality results in unequal access to public goods, such as basic necessities. This may influence stress and mental health, negatively affecting health. It has been determined that life expectancy increases continuously with income. Between the top 1% and bottom 1% of the income distribution, life expectancy differed by 15 years for men and 10 years for women (Chetty et. al). We expect the relationship to be moderate as there are many factors outside of income that influence life expectancy, such as access to healthcare, education, and personal choices. 
+
+The two variables that we are using are the Income Share of the Poorest 20% and Life Expectancy at Birth. The Income Share of the Poorest 20% is from the World Bank Group and measures the proportion of a country's total income received by the bottom decile (20%). We have the proportions for each country and year, spanning 60 years. Life Expectancy at Birth is the average number of years a newborn child would live if current mortality patterns were to stay the same. The values were calculated using two main sources - the Human Mortality Database and the United Nations Population divisions World Population Prospects. We have estimates of Life Expectancy at Birth for each country and year, stretching over 200 years.
+
+
+The analysis may be impacted by how the data is sorted.  The income share data set has income share by country and year, and we may see different results depending on the time frame or country we choose.  The life expectancy at birth data set also has the option to sort by country and region, but has yearly data for life expectancy worldwide as well. The life expectancy dataset also has a “Notes and Uncertainty” section that writes about confounding factors affecting life expectancy, including pandemics, famines, war, and genocide. We will have to account for this when cleaning the data.
+
+### Data
+When cleaning the data, we made the dataset for Life Expectancy smaller since it spanned 200 years. We chose the years 1950 to 2050 as the dataset for Income Share of Poorest 20% spans from 1963 to 2023. For the income dataset, the frequency of data varies from country to country, as some countries like the USA have values for every year while others are inconsistent or sparse. We dealt with this by first turning each observation in each dataset from identifying by just the country, to identifying by country and reporting year. Then, we joined the two datasets by country and the reporting year and removed the observations that didn’t have income data for that year. This resulted in keeping around 10% of the original data, as many countries reported no income data for that reporting year. We decided to do this as there was no pattern which observations have missing data.
+
+
+
+Works Cited
+
+Chetty, Raj, et al. “The Association Between Income and Life Expectancy in the United States, 2001–2014.” JAMA, vol. 315, no. 16, 2016, pp. 1750–1766, doi:10.1001/jama.2016.4226.
+
+Gapminder Foundation. “Gapminder Data.” Gapminder, https://www.gapminder.org/data/. 
+
+Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, https://www.gapminder.org/data/documentation/gd004/. 
+
+United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf. 
+
+World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.10).” World Bank Data, https://data.worldbank.org/indicator/SI.DST.FRST.10. 
+
+Human Mortality Database. Accessed via Gapminder Foundation, https://www.gapminder.org/data/documentation/gd004/. 
+
 ## Data Cleaning
 
 **Loading Required Packages**
@@ -108,7 +139,7 @@ joined_data |>
 
 ## Linear Regression
 
-**Visualizing the Relationship Between Life Expectancy and Income Share of the Middle 20% **
+### Visualizing the Relationship Between Life Expectancy and Income Share of the Middle 20%
 
 ```{r}
 joined_data |>
@@ -128,8 +159,10 @@ joined_data |>
        ) +
   theme(axis.title.y = element_blank())
 ```
+Each point on the plot corresponds to the mean life expectancy and income share for one country. Based on the scatterplot with the linear regression line, it seems that there is an upward trend. The slope of the regression line is positive, indicating a positive relationship between income of middle 20% and life expectancy. It appears there is more variability for those who have a lower income share, but the overall trend is still upward. This suggests that those who have a larger share in the middle 20% of the population have a higher life expectancy.
 
-**Creating an Animated Plot of How The Relationship Changes Over Time**
+
+### Animated Plot of How The Relationship Changes Over Time
 
 ```{r}
 library(gifski)
@@ -151,8 +184,26 @@ data_anim <- joined_data |>
 animate(data_anim, nframes = 61, fps = 2, renderer = gifski_renderer("income_life_animation.gif"))
 
 ```
+From the animated plot, we can see that more data on a country’s life expectancy and income share for the middle 20% became available as time went on. Also, the mean life expectancies and income shares increased in most countries over time. They demonstrate a positive correlation over the years, although some years have a less noticeable trend.
 
-**Fitting a SLR Model**
+### Simple Regression Model
+We will be using linear regression to visualize this data. We selected life expectancy as the response variable because our goal is to understand how it is affected by income distribution. The income share of the middle 20% serves as the explanatory variable, as we are investigating its potential influence on life expectancy. No transformation is necessary since the data shows a linear positive correlation.
+
+**Regression model notation**
+
+$$ \text{Life Expectancy (years)} = 50.08 + 1.50 \times \text{Income Share of Middle 20\%} $$
+
+* ŷ = life expectancy (years)
+
+* β0 = 50.08
+
+* β1 = 1.50
+
+* X1 = income share of middle 20%
+
+
+
+### Fitting a SLR Model
 
 ```{r}
 data_for_lm <- joined_data |>
@@ -160,6 +211,7 @@ data_for_lm <- joined_data |>
   mutate(life_ex = mean(life_ex)) |>
   mutate(income_share = mean(income_share))
 ```
+
 
 ```{r}
 project_lm <- lm(life_ex ~ income_share, 
@@ -170,7 +222,7 @@ kable(broom::tidy(project_lm))
 
 This table represents a simple linear regression model of the relationship between *Life Expectancy* and *Income Share of the Middle 20%*. The coefficients shown in the table tell us that if someone's income share is 0, their expected life expectancy is about 50 years. The coefficients also show that for each dollar gained, a person will live about 1.5 years more, on average.
 
-**Model Fit **
+### Model Fit
 
 ```{r}
 lm_assess <-broom::augment(project_lm)
@@ -186,5 +238,4 @@ lm_assess |>
     position = "center", font_size = 12)
 ```
 
-
-As shown in the table above, about 17.57% of variance in life expectancy appears to be explained by income share of the middle 20%. This is fairly large, and though it certainly doesn't seem like a large portion, considering life expectancy is impacted by such a variety of sources, I consider the value we obtained to be impressive.
+The total variability in life expectancy is 47.07%, of which 8.27% is explained by the income share of the middle 20% and 38.80% is not explained by the model. About 17.6% of the variation in life expectancy can be explained by the income share of the middle 20%.  This is fairly large, and though it certainly doesn’t seem like a large portion, considering life expectancy is impacted by such a variety of sources, we consider the value we obtained to be impressive.
