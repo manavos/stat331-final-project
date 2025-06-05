@@ -22,6 +22,7 @@ library(knitr)
 library(gganimate)
 library(broom)
 library(kableExtra)
+library(gifski)
 ```
 
 ## Introduction
@@ -62,3 +63,11 @@ joined_data <- joined_data |>
   filter(!is.na(income_share)) |>
   mutate(year = as.numeric(year))
 ```
+
+
+
+
+
+
+
+
