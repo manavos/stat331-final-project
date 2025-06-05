@@ -141,7 +141,7 @@ kable(broom::tidy(project_lm))
 
 **Checking Initial Model Fit**
 
-The following table demonstrates the amount of variance in life expectancy explained by our model. Based on this data, it appears that the income share of the middle 20% explains approximately 17.5% of the variance in life expectancy at birth of a country. This percentage is surprisingly large, given how many other variable have an impact on the life expectancy of a country.
+The following table demonstrates the amount of variance in life expectancy explained by our model. Based on this data, it appears that the income share of the middle 20% explains approximately 17.5% of the variance in life expectancy at birth of a country. This percentage is surprisingly large, given how many other variables have an impact on the life expectancy of a country.
 
 ```{r}
 lm_assess <-broom::augment(project_lm)
@@ -158,6 +158,7 @@ lm_assess |>
 ```
 
 ## Cross-Validation
+
 
 ```{r}
 set.seed(14)
@@ -205,3 +206,24 @@ cv_r2 <- map_dbl(.x = 1:10,
 kable(mean(cv_r2))
 
 ```
+
+
+## Conclusion
+
+
+## Works Cited and Project References
+
+GitHub Reference Link:
+https://github.com/manavos/stat331-final-project.git
+
+Chetty, Raj, et al. “The Association Between Income and Life Expectancy in the United States, 2001–2014.” JAMA, vol. 315, no. 16, 2016, pp. 1750–1766, doi:10.1001/jama.2016.4226.
+
+Gapminder Foundation. “Gapminder Data.” Gapminder, https://www.gapminder.org/data/. 
+
+Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, https://www.gapminder.org/data/documentation/gd004/. 
+
+United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf. 
+
+World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.10).” World Bank Data, https://data.worldbank.org/indicator/SI.DST.FRST.10. 
+
+Human Mortality Database. Accessed via Gapminder Foundation, https://www.gapminder.org/data/documentation/gd004/. 
