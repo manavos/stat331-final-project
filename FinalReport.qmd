@@ -32,7 +32,7 @@ We hypothesize a positive relationship between Income Share of the Poorest 20% a
 
 The two variables that we are using are the Income Share of the Middle 20% and Life Expectancy at Birth. The Income Share of the Middle 20% is from the World Bank Group and measures the proportion of a country's total income received by the middle 20% (third quintile). We have the proportions for each country and year, spanning 60 years. Life Expectancy at Birth is the average number of years a newborn child would live if current mortality patterns were to stay the same. The values were calculated using two main sources - the Human Mortality Database and the United Nations Population divisions World Population Prospects. We have estimates of Life Expectancy at Birth for each country and year, stretching over 200 years.
 
-## Data Cleaning Procedures
+## Data Cleaning
 
 The analysis may be impacted by how the data is sorted.  The income share data set has income share by country and year, and we may see different results depending on the time frame or country we choose.  The life expectancy at birth data set also has the option to sort by country and region, but has yearly data for life expectancy worldwide as well. The life expectancy dataset also has a “Notes and Uncertainty” section that writes about confounding factors affecting life expectancy, including pandemics, famines, war, and genocide. We did our best to account for these factors when cleaning the data.
 
