@@ -12,11 +12,15 @@ execute:
 ---
 
 ```{r setup}
-
-
+library(tidyverse)
+library(readr)
+library(knitr)
+library(gganimate)
+library(broom)
+library(kableExtra)
 ```
 
-#Stat 331 Project Report
+# Stat 331 Project Report
 
 
 Hailey Hossain, Zoey Miles, Ashley Navos, Vinithra Seshan
