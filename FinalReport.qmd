@@ -1,0 +1,24 @@
+---
+title: "Stat 331 Project Report"
+author: "Hailey Hossain, Zoey Miles, Ashley Navos, Vinithra Seshan"
+format: html
+embed-resources: true
+code-tools: true
+code-fold: true
+execute: 
+  warning: false
+  error: false
+  echo: false
+---
+
+```{r setup}
+
+
+```
+
+#Stat 331 Project Report
+
+
+Hailey Hossain, Zoey Miles, Ashley Navos, Vinithra Seshan
+
+##Introduction
