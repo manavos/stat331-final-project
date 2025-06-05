@@ -1,14 +1,18 @@
 ---
 title: "Stat 331 Project Report"
 author: "Hailey Hossain, Zoey Miles, Ashley Navos, Vinithra Seshan"
-format: html
-embed-resources: true
-code-tools: true
-code-fold: true
+format: 
+  html:
+    embed-resources: true
+    code-tools: true
+    toc: true
+    code-fold: true
+editor: source
 execute: 
+  error: true
+  echo: true
+  message: false
   warning: false
-  error: false
-  echo: false
 ---
 
 ```{r setup}
@@ -21,7 +25,6 @@ library(kableExtra)
 ```
 
 # Stat 331 Project Report
-
 
 Hailey Hossain, Zoey Miles, Ashley Navos, Vinithra Seshan
 
