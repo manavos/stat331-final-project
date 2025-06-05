@@ -206,7 +206,10 @@ cv_r2 <- map_dbl(.x = 1:10,
 kable(mean(cv_r2))
 
 ```
+```{r}
+#Code for R squared plot
 
+```
 
 ## Conclusion
 
