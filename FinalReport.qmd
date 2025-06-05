@@ -66,7 +66,8 @@ joined_data <- joined_data |>
 
 ## Modeling The Relationship Between Life Expectancy and Income Share of the Middle 20%
 
-The following plot illustrates the relationship between mean life expectancy and mean income share of the middle 20%, with each point representing a country. The plot was also fitted with a regression line for visual analysis, and on initial inspection, it appears there is a positive, moderately linear relationship between the two factors. It appears there is more variability for those who have a lower income share, but the overall trend appears consistently positive.This plot appears to indicate that as the income share of the middle 20% of individuals in a country increases, that country's life expectancy at birth will also increase.
+The following plot illustrates the relationship between mean life expectancy and mean income share of the middle 20%, with each point representing a country. We will be using linear regression to visualize this data. We selected life expectancy as the response variable because our goal is to understand how it is affected by income distribution. The income share of the middle 20% serves as the explanatory variable, as we are investigating its potential influence on life expectancy.
+The plot was also fitted with a regression line for visual analysis, and on initial inspection, it appears there is a positive, moderately linear relationship between the two factors. It appears there is more variability for those who have a lower income share, but the overall trend appears consistently positive.This plot appears to indicate that as the income share of the middle 20% of individuals in a country increases, that country's life expectancy at birth will also increase.
 ```{R}
 joined_data |>
   group_by(country) |>
@@ -87,7 +88,7 @@ joined_data |>
 
 ```
 
-
+The following animated plot shows the relationship between income share of the middle 20% and life expectancy across years for each coutry that has data for the specified year. From the animated plot, we can see that more data on a country’s life expectancy and income share for the middle 20% became available as time went on. Also, the life expectancies and income shares increased in most countries over time. Overall, it appears there is a positive correlation over the years, although some years have a less noticeable trend. In addition to allowing us to see trends in the data over the years this plot also demonstrates how certain years only contained data for a few countries. This resulted in us narrowing our data set further, only including years after 1979, as to ensure we had ample data points per year to evaluate trends in the data.
 
 
 ```{r}
