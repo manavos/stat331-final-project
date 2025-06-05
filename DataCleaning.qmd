@@ -187,3 +187,70 @@ lm_assess |>
 
 
 As shown in the table above, about 17.57% of variance in life expectancy appears to be explained by income share of the middle 20%. This is fairly large, and though it certainly doesn't seem like a large portion, considering life expectancy is impacted by such a variety of sources, I consider the value we obtained to be impressive.
+
+
+
+```{r}
+set.seed(14)
+
+# randomly sample 20% of indices
+test.idx <- sample(1:nrow(data_for_lm), 
+                   size = floor(nrow(data_for_lm)*.2))
+
+# subset data for training set (80% of penguins)
+train_dat <- data_for_lm |> 
+  filter(!row_number() %in% test.idx)
+
+# subset data for test set (20% of penguins)
+test_dat  <- data_for_lm  |> 
+  filter(row_number() %in% test.idx)
+
+
+n <- nrow(data_for_lm)
+
+# randomly partition into 10 folds 
+data_for_lm <- data_for_lm |> 
+  ungroup() |> 
+  mutate(fold = sample(rep_len(1:10, length.out = n),
+                       size = n))
+
+
+
+
+```
+
+```{r}
+cv <- function(x, dataset){
+  # separate fold (test) data
+  fold_dat <- dataset |> 
+    filter(fold == x)
+  
+  # and training data
+  train_dat <- dataset |> 
+    filter(fold != x)
+  
+  # fit model with training data
+  it_lm <- lm(life_ex ~ income_share, 
+                 data = train_dat)
+  
+  # generate predictions for the held-out fold data
+  fold_preds <- predict(it_lm, newdata = fold_dat)
+  
+  return (var(fold_preds)/var(fold_dat$life_ex))
+  
+}
+
+```
+
+```{r}
+
+cv_r2 <- map_dbl(.x = 1:10,
+        .f = ~ cv(.x, data_for_lm))
+```
+
+```{r}
+mean(cv_r2)
+```
+
+
+
