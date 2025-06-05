@@ -24,12 +24,7 @@ library(broom)
 library(kableExtra)
 ```
 
-# Stat 331 Project Report
-
-Hailey Hossain, Zoey Miles, Ashley Navos, Vinithra Seshan
-
-
-##Introduction
+## Introduction
 
 Income and life expectancy have historically been shown to be correlated. At age 40, men in the top 1% income bracket are expected to live 14.6 years longer than those in the bottom 1%, and women can expect to live 10.1 years longer (Chetty et. al). We decided to explore the relationship between the income share of the middle 20% of individuals and life expectancy at birth to see how this correlation has changed throughout time and across countries.
 
