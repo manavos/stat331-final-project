@@ -29,7 +29,7 @@ library(gifski)
 
 Income and life expectancy have historically been shown to be correlated. At age 40, men in the top 1% income bracket are expected to live 14.6 years longer than those in the bottom 1%, and women can expect to live 10.1 years longer (Chetty et. al). We decided to explore the relationship between the income share of the middle 20% of individuals and life expectancy at birth to see how this correlation has changed throughout time and across countries.
 
-We hypothesize a positive relationship between Income Share of the Poorest 20% and Life Expectancy at Birth at the country level. As the share of total national income received by the middle 20% increases, life expectancy is expected to rise. We expect this relationship as income inequality results in unequal access to public goods, such as basic necessities. Additionally, economists frequently conclude that a strong missle class contributes heavily to overall quality of life and, in turn, life expectancy. We expect the relationship to be moderate as there are many factors outside of income that influence life expectancy, such as access to healthcare, education, and personal choices. 
+We hypothesize a positive relationship between Income Share of the Poorest 20% and Life Expectancy at Birth at the country level. As the share of total national income received by the middle 20% increases, life expectancy is expected to rise. We expect this relationship as income inequality results in unequal access to public goods, such as basic necessities. Additionally, economists frequently conclude that a strong middle class contributes heavily to overall quality of life and, in turn, life expectancy. We expect the relationship to be moderate as there are many factors outside of income that influence life expectancy, such as access to healthcare, education, and personal choices. 
 
 The two variables that we are using are the Income Share of the Middle 20% and Life Expectancy at Birth. The Income Share of the Middle 20% is from the World Bank Group and measures the proportion of a country's total income received by the middle 20% (third quintile). We have the proportions for each country and year, spanning 60 years. Life Expectancy at Birth is the average number of years a newborn child would live if current mortality patterns were to stay the same. The values were calculated using two main sources - the Human Mortality Database and the United Nations Population divisions World Population Prospects. We have estimates of Life Expectancy at Birth for each country and year, stretching over 200 years.
 
@@ -64,9 +64,29 @@ joined_data <- joined_data |>
   mutate(year = as.numeric(year))
 ```
 
+## Modeling The Relationship Between Life Expectancy and Income Share of the Middle 20%
+
+The following plot illustrates the relationship between mean life expectancy and mean income share of the middle 20%, with each point representing a country. The plot was also fitted with a regression line for visual analysis, and on initial inspection, it appears there is a positive, moderately linear relationship between the two factors. It appears there is more variability for those who have a lower income share, but the overall trend appears consistently positive.This plot appears to indicate that as the income share of the middle 20% of individuals in a country increases, that country's life expectancy at birth will also increase.
+```{R}
+joined_data |>
+  group_by(country) |>
+  mutate(life_ex = mean(life_ex)) |>
+  mutate(income_share = mean(income_share))|>
+  ggplot(aes(x = income_share, 
+             y = life_ex
+             )
+         ) +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  labs(x = "Income Share of the Middle 20%",
+       subtitle = "Life Expectancy(Years)",
+       title = "Relationship Between Income Share of the Middle 20%
+       and Life Expectancy"
+       ) +
+  theme(axis.title.y = element_blank())
 
 
-
+```
 
 
 
