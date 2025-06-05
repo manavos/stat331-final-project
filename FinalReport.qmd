@@ -38,5 +38,27 @@ The analysis may be impacted by how the data is sorted.  The income share data s
 
 When cleaning the data, we made the dataset for Life Expectancy smaller since it spanned 200 years. We chose the years 1950 to 2050 as the dataset for Income Share of the middle 20% only spans from 1963 to 2023. For the income dataset, the frequency of data varies from country to country, as some countries like the USA have values for every year while others are inconsistent or sparse. This was accounted for when joining the two data sets, producing a set which contained only data for countries and years that reported both values. Thius resulted in a large reduction of our data pool, as many countries had little or no data on income share for some reporting decades. Due to there being no clear pattern found in which values were missing, as well as the nature of our analysis, we felt it best to remove all missing values from both data sets, keeping only data points share by both sets of data.
 
+```{r}
+lex <- read_csv("lex.csv")
 
+lex_long <- lex |>
+  select(country,"1950":"2050") |>
+  pivot_longer(cols = !country, 
+               names_to = "year", 
+               values_to = "life_ex")
 
+income_share_middle <- read_csv("income_share_of_middle_20percent.csv")
+
+income_share_long <- income_share_middle |> 
+  pivot_longer(cols = !country, 
+               names_to = "year", 
+               values_to = "income_share")
+
+joined_data <- left_join(lex_long, 
+                         income_share_long, 
+                         join_by(country==country,year==year))
+
+joined_data <- joined_data |>
+  filter(!is.na(income_share)) |>
+  mutate(year = as.numeric(year))
+```
