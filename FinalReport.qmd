@@ -139,6 +139,69 @@ project_lm <- lm(life_ex ~ income_share,
 kable(broom::tidy(project_lm))
 ```
 
+**Checking Initial Model Fit**
 
+The following table demonstrates the amount of variance in life expectancy explained by our model. Based on this data, it appears that the income share of the middle 20% explains approximately 17.5% of the variance in life expectancy at birth of a country. This percentage is surprisingly large, given how many other variable have an impact on the life expectancy of a country.
 
+```{r}
+lm_assess <-broom::augment(project_lm)
+r2 <- broom::glance(project_lm)$r.squared
+lm_assess |>
+  ungroup() |>
+  summarize("Variance in Response" = var(life_ex),
+            "Variance of Predicted Values" = var(.fitted),
+            "Variance of Residuals" = var(.resid),
+            RSquared = r2) |>
+  kable(caption = "Model Variances and R-Squared", align = "c") |>
+  kable_styling(
+    position = "center", font_size = 12)
+```
 
+## Cross-Validation
+
+```{r}
+set.seed(14)
+
+# randomly sample 20% of indices
+test.idx <- sample(1:nrow(data_for_lm), 
+                   size = floor(nrow(data_for_lm)*.2))
+
+# subset data for training set 80%
+train_dat <- data_for_lm |> 
+  filter(!row_number() %in% test.idx)
+
+# subset data for test set 20%
+test_dat  <- data_for_lm  |> 
+  filter(row_number() %in% test.idx)
+n <- nrow(data_for_lm)
+
+# randomly partition into 10 folds 
+data_for_lm <- data_for_lm |> 
+  ungroup() |> 
+  mutate(fold = sample(rep_len(1:10, length.out = n),
+                       size = n))
+cv <- function(x, dataset){
+  # separate fold (test) data
+  fold_dat <- dataset |> 
+    filter(fold == x)
+  
+  # and training data
+  train_dat <- dataset |> 
+    filter(fold != x)
+  
+  # fit model with training data
+  it_lm <- lm(life_ex ~ income_share, 
+                 data = train_dat)
+  
+  # generate predictions for the held-out fold data
+  fold_preds <- predict(it_lm, newdata = fold_dat)
+  
+  return (var(fold_preds)/var(fold_dat$life_ex))
+  
+}
+
+cv_r2 <- map_dbl(.x = 1:10,
+        .f = ~ cv(.x, data_for_lm))
+kable(mean(cv_r2))
+
+```
