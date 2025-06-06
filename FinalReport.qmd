@@ -208,7 +208,19 @@ kable(mean(cv_r2))
 ```
 ```{r}
 #Code for R squared plot
+avg_r2 <- mean(cv_r2)
 
+cv_r2_results <- enframe(cv_r2, name = "fold", value = "r_squared")
+
+cv_r2_results |> 
+  ggplot(aes(x=r_squared)) +
+  geom_histogram(binwidth = 0.02, color = "blue", fill = "skyblue") + 
+  geom_vline(xintercept = avg_r2, color = "red", linetype = "dashed") +
+  labs(x = "R² Value",
+       y = "",
+       subtitle = "Frequency",
+       title = "Distribution of R² Values from 10-Fold Cross-Validation") +
+  theme_minimal()
 ```
 
 ## Conclusion
