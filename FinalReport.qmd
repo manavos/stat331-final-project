@@ -93,7 +93,6 @@ joined_data |>
 The following animated plot shows the relationship between income share of the middle 20% and life expectancy across years for each country that has data for the specified year. From the animated plot, we can see that more data on a country’s life expectancy and income share for the middle 20% became available as time went on. Also, the life expectancy and income share increased in most countries over time. Overall, it appears there is a positive correlation over the years, although some years have a less noticeable trend. In addition to allowing us to see trends in the data over the years this plot also demonstrates how certain years only contained data for a few countries. This resulted in us narrowing our data set further, only including years after 1979, as to ensure we had ample data points per year to evaluate trends in the data.
 
 ```{r}
-library(gifski)
 data_anim <- joined_data |> 
   ggplot(aes(x = income_share, y = life_ex)) +
   geom_point(alpha = 0.7, color = "steelblue") +
