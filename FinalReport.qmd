@@ -223,7 +223,19 @@ cv_r2_results |>
   theme_minimal()
 ```
 
+The mean R² ≈ 0.178 suggests that the model explains about 17.8% of the variance in life expectancy. This is quite substantial considering that only one variable is being used to predict life expectancy, which is quite complex.
+
+R² values range from 0.125 to 0.25 across the 10 folds. This moderate variability indicates that the model’s performance is relatively consistent across different training/testing splits. No folds produce drastically low or high R², which supports model stability.
+There is no  strong evidence of overfitting since R² values in cross-validation are consistent and not drastically lower than 0.178 (the mean). This means the model is generalizing reasonably well across folds.
+
+
 ## Conclusion
+
+Our analysis explored the relationship between the income share of the middle 20% and life expectancy at birth across countries from 1980 to 2023. After data cleaning, we found a consistent, positive relationship between these two variables. Despite working with only about 10% of the original dataset due to missing income data, the linear regression model revealed meaningful insights.
+The model indicates that for every 1% increase in the income share of the middle 20%, life expectancy at birth increases by approximately 1.50 years. The model explains around 17.6% of the total variance in life expectancy, which is substantial considering the many factors involved—such as healthcare access, education, pandemics, and historical events like war and genocide. The total variability in life expectancy is 47.07 years, of which 8.27 years is explained by the income share of the middle 20% and 38.80 years is not explained by the model. 
+Cross-validation confirmed that the model's performance is stable across different data splits, with R² values ranging from 0.125 to 0.25 and a mean of 0.178. This suggests that the model generalizes well without signs of overfitting, though it is not highly predictive on its own. 
+Future studies could build on this by incorporating additional predictors such as education levels, healthcare access, and disaster events to develop more robust models. Nonetheless, our findings reinforce the idea that supporting the middle class may be a meaningful policy lever for improving life expectancy worldwide.
+ 
 
 
 ## Works Cited and Project References
