@@ -3570,21 +3570,20 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gifski)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data_anim <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> income_share, <span class="at">y =</span> life_ex)) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Life Expectancy (Years)&quot;</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Income Share of Middle 20%&quot;</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Year: {frame_time}&quot;</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Middle 20% Income Share and Life Expectancy Over Time&quot;</span>) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_time</span>(year) <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&quot;linear&quot;</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(data_anim, <span class="at">nframes =</span> <span class="dv">61</span>, <span class="at">fps =</span> <span class="dv">2</span>, <span class="at">renderer =</span> <span class="fu">gifski_renderer</span>(<span class="st">&quot;income_life_animation.gif&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_anim <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> income_share, <span class="at">y =</span> life_ex)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Life Expectancy (Years)&quot;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Income Share of Middle 20%&quot;</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Year: {frame_time}&quot;</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Middle 20% Income Share and Life Expectancy Over Time&quot;</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_time</span>(year) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&quot;linear&quot;</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(data_anim, <span class="at">nframes =</span> <span class="dv">61</span>, <span class="at">fps =</span> <span class="dv">2</span>, <span class="at">renderer =</span> <span class="fu">gifski_renderer</span>(<span class="st">&quot;income_life_animation.gif&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3734,23 +3733,8 @@ window.Quarto = {
 <span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>cv_r2 <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="at">.x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">.f =</span> <span class="sc">~</span> <span class="fu">cv</span>(.x, data_for_lm))</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">mean</span>(cv_r2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">.f =</span> <span class="sc">~</span> <span class="fu">cv</span>(.x, data_for_lm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">x</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.1783872</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 <div class="cell">
 <details class="code-fold">
@@ -3778,19 +3762,22 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>The mean R² ≈ 0.178 suggests that the model explains about 17.8% of the variance in life expectancy. This is quite substantial considering that only one variable is being used to predict life expectancy, which is quite complex.</p>
+<p>R² values range from 0.125 to 0.25 across the 10 folds. This moderate variability indicates that the model’s performance is relatively consistent across different training/testing splits. No folds produce drastically low or high R², which supports model stability. There is no strong evidence of overfitting since R² values in cross-validation are consistent and not drastically lower than 0.178 (the mean). This means the model is generalizing reasonably well across folds.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Our analysis explored the relationship between the income share of the middle 20% and life expectancy at birth across countries from 1980 to 2023. After data cleaning, we found a consistent, positive relationship between these two variables. Despite working with only about 10% of the original dataset due to missing income data, the linear regression model revealed meaningful insights. The model indicates that for every 1% increase in the income share of the middle 20%, life expectancy at birth increases by approximately 1.50 years. The model explains around 17.6% of the total variance in life expectancy, which is substantial considering the many factors involved—such as healthcare access, education, pandemics, and historical events like war and genocide. The total variability in life expectancy is 47.07 years, of which 8.27 years is explained by the income share of the middle 20% and 38.80 years is not explained by the model. Cross-validation confirmed that the model’s performance is stable across different data splits, with R² values ranging from 0.125 to 0.25 and a mean of 0.178. This suggests that the model generalizes well without signs of overfitting, though it is not highly predictive on its own. Future studies could build on this by incorporating additional predictors such as education levels, healthcare access, and disaster events to develop more robust models. Nonetheless, our findings reinforce the idea that supporting the middle class may be a meaningful policy lever for improving life expectancy worldwide.</p>
 </section>
 <section id="works-cited-and-project-references" class="level2">
 <h2 class="anchored" data-anchor-id="works-cited-and-project-references">Works Cited and Project References</h2>
-<p>GitHub Reference Link: https://github.com/manavos/stat331-final-project.git</p>
+<p>GitHub Reference Link: <a href="https://github.com/manavos/stat331-final-project.git" class="uri">https://github.com/manavos/stat331-final-project.git</a></p>
 <p>Chetty, Raj, et al. “The Association Between Income and Life Expectancy in the United States, 2001–2014.” JAMA, vol. 315, no. 16, 2016, pp. 1750–1766, doi:10.1001/jama.2016.4226.</p>
-<p>Gapminder Foundation. “Gapminder Data.” Gapminder, https://www.gapminder.org/data/.</p>
-<p>Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, https://www.gapminder.org/data/documentation/gd004/.</p>
-<p>United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf.</p>
-<p>World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.10).” World Bank Data, https://data.worldbank.org/indicator/SI.DST.FRST.10.</p>
-<p>Human Mortality Database. Accessed via Gapminder Foundation, https://www.gapminder.org/data/documentation/gd004/.</p>
+<p>Gapminder Foundation. “Gapminder Data.” Gapminder, <a href="https://www.gapminder.org/data/" class="uri">https://www.gapminder.org/data/</a></p>
+<p>Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, <a href="https://www.gapminder.org/data/documentation/gd004/" class="uri">https://www.gapminder.org/data/documentation/gd004/</a></p>
+<p>United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, <a href="https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf" class="uri">https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf</a></p>
+<p>World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.10).” World Bank Data, <a href="https://data.worldbank.org/indicator/SI.DST.FRST.10" class="uri">https://data.worldbank.org/indicator/SI.DST.FRST.10</a></p>
+<p>Human Mortality Database. Accessed via Gapminder Foundation, <a href="https://www.gapminder.org/data/documentation/gd004/" class="uri">https://www.gapminder.org/data/documentation/gd004/</a></p>
 <!-- -->
 
 </section>
@@ -4363,155 +4350,164 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>The following animated plot shows the relationship between income share of the middle 20% and life expectancy across years for each country that has data for the specified year. From the animated plot, we can see that more data on a country’s life expectancy and income share for the middle 20% became available as time went on. Also, the life expectancy and income share increased in most countries over time. Overall, it appears there is a positive correlation over the years, although some years have a less noticeable trend. In addition to allowing us to see trends in the data over the years this plot also demonstrates how certain years only contained data for a few countries. This resulted in us narrowing our data set further, only including years after 1979, as to ensure we had ample data points per year to evaluate trends in the data.</span>
 <span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gifski)</span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>data_anim <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span> </span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> income_share, <span class="at">y =</span> life_ex)) <span class="sc">+</span></span>
-<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Life Expectancy (Years)&quot;</span>,</span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Income Share of Middle 20%&quot;</span>,</span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Year: {frame_time}&quot;</span>,</span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Middle 20% Income Share and Life Expectancy Over Time&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_time</span>(year) <span class="sc">+</span></span>
-<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&quot;linear&quot;</span>)</span>
-<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(data_anim, <span class="at">nframes =</span> <span class="dv">61</span>, <span class="at">fps =</span> <span class="dv">2</span>, <span class="at">renderer =</span> <span class="fu">gifski_renderer</span>(<span class="st">&quot;income_life_animation.gif&quot;</span>))</span>
-<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>**Simple Linear Regression**</span>
-<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>We used linear regression to visualize this data. Within this model, life expectancy was chosen as the response variable, and the income share of the middle 20% was chosen as the independent variable.</span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>We followed the following formula when fitting our linear regression model:</span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>$$ \text{Y} = \beta_0 + \beta_1  x  $$</span>
-<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a>With B~0~ representing the intercept of the model and B~1~ representing the linear coefficient, with x being the independent variable (income share of the middle 20%) and y being the response variable (life expectancy).</span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>The following formula represents our fitted linear model.</span>
-<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>$$ \text{Life Expectancy (years)} = 49.96 + 1.53 \times \text{Income Share of Middle 20%} $$</span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>Additionally, the following table represents the simple linear regression model of the relationship between Life Expectancy and Income Share of the Middle 20%. The coefficients shown in the table tell us that if someone&#39;s income share is 0, their predicted life expectancy is about 49.96 years. The coefficients also show that for each one percent increase in the income share of the middle 20%, the predicted life expectancy at birth for a country increases by approximately 1.52 years.</span>
-<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span></span>
-<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1980</span>)</span>
-<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>data_for_lm <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span></span>
-<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span></span>
-<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">life_ex =</span> <span class="fu">mean</span>(life_ex)) <span class="sc">|&gt;</span></span>
-<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">income_share =</span> <span class="fu">mean</span>(income_share))</span>
-<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a>project_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(life_ex <span class="sc">~</span> income_share, </span>
-<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> data_for_lm)</span>
-<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(broom<span class="sc">::</span><span class="fu">tidy</span>(project_lm))</span>
-<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>**Checking Initial Model Fit**</span>
-<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>The following table demonstrates the amount of variance in life expectancy explained by our model. Based on this data, it appears that the income share of the middle 20% explains approximately 17.5% of the variance in life expectancy at birth of a country. This percentage is surprisingly large, given how many other variables have an impact on the life expectancy of a country.</span>
-<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>lm_assess <span class="ot">&lt;-</span>broom<span class="sc">::</span><span class="fu">augment</span>(project_lm)</span>
-<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> broom<span class="sc">::</span><span class="fu">glance</span>(project_lm)<span class="sc">$</span>r.squared</span>
-<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a>lm_assess <span class="sc">|&gt;</span></span>
-<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">&quot;Variance in Response&quot;</span> <span class="ot">=</span> <span class="fu">var</span>(life_ex),</span>
-<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Variance of Predicted Values&quot;</span> <span class="ot">=</span> <span class="fu">var</span>(.fitted),</span>
-<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Variance of Residuals&quot;</span> <span class="ot">=</span> <span class="fu">var</span>(.resid),</span>
-<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a>            <span class="at">RSquared =</span> r2) <span class="sc">|&gt;</span></span>
-<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Model Variances and R-Squared&quot;</span>, <span class="at">align =</span> <span class="st">&quot;c&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
-<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;center&quot;</span>, <span class="at">font_size =</span> <span class="dv">12</span>)</span>
-<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cross-Validation</span></span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>data_anim <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span> </span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> income_share, <span class="at">y =</span> life_ex)) <span class="sc">+</span></span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Life Expectancy (Years)&quot;</span>,</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Income Share of Middle 20%&quot;</span>,</span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Year: {frame_time}&quot;</span>,</span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Middle 20% Income Share and Life Expectancy Over Time&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_time</span>(year) <span class="sc">+</span></span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&quot;linear&quot;</span>)</span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(data_anim, <span class="at">nframes =</span> <span class="dv">61</span>, <span class="at">fps =</span> <span class="dv">2</span>, <span class="at">renderer =</span> <span class="fu">gifski_renderer</span>(<span class="st">&quot;income_life_animation.gif&quot;</span>))</span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a>**Simple Linear Regression**</span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>We used linear regression to visualize this data. Within this model, life expectancy was chosen as the response variable, and the income share of the middle 20% was chosen as the independent variable.</span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>We followed the following formula when fitting our linear regression model:</span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>$$ \text{Y} = \beta_0 + \beta_1  x  $$</span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>With B~0~ representing the intercept of the model and B~1~ representing the linear coefficient, with x being the independent variable (income share of the middle 20%) and y being the response variable (life expectancy).</span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a>The following formula represents our fitted linear model.</span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>$$ \text{Life Expectancy (years)} = 49.96 + 1.53 \times \text{Income Share of Middle 20%} $$</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>Additionally, the following table represents the simple linear regression model of the relationship between Life Expectancy and Income Share of the Middle 20%. The coefficients shown in the table tell us that if someone&#39;s income share is 0, their predicted life expectancy is about 49.96 years. The coefficients also show that for each one percent increase in the income share of the middle 20%, the predicted life expectancy at birth for a country increases by approximately 1.52 years.</span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>joined_data <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span></span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1980</span>)</span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>data_for_lm <span class="ot">&lt;-</span> joined_data <span class="sc">|&gt;</span></span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span></span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">life_ex =</span> <span class="fu">mean</span>(life_ex)) <span class="sc">|&gt;</span></span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">income_share =</span> <span class="fu">mean</span>(income_share))</span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>project_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(life_ex <span class="sc">~</span> income_share, </span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> data_for_lm)</span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(broom<span class="sc">::</span><span class="fu">tidy</span>(project_lm))</span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>**Checking Initial Model Fit**</span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a>The following table demonstrates the amount of variance in life expectancy explained by our model. Based on this data, it appears that the income share of the middle 20% explains approximately 17.5% of the variance in life expectancy at birth of a country. This percentage is surprisingly large, given how many other variables have an impact on the life expectancy of a country.</span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a>lm_assess <span class="ot">&lt;-</span>broom<span class="sc">::</span><span class="fu">augment</span>(project_lm)</span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> broom<span class="sc">::</span><span class="fu">glance</span>(project_lm)<span class="sc">$</span>r.squared</span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a>lm_assess <span class="sc">|&gt;</span></span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">&quot;Variance in Response&quot;</span> <span class="ot">=</span> <span class="fu">var</span>(life_ex),</span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Variance of Predicted Values&quot;</span> <span class="ot">=</span> <span class="fu">var</span>(.fitted),</span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Variance of Residuals&quot;</span> <span class="ot">=</span> <span class="fu">var</span>(.resid),</span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a>            <span class="at">RSquared =</span> r2) <span class="sc">|&gt;</span></span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Model Variances and R-Squared&quot;</span>, <span class="at">align =</span> <span class="st">&quot;c&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&quot;center&quot;</span>, <span class="at">font_size =</span> <span class="dv">12</span>)</span>
+<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cross-Validation</span></span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">14</span>)</span>
-<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly sample 20% of indices</span></span>
-<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a>test.idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data_for_lm), </span>
-<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="fu">floor</span>(<span class="fu">nrow</span>(data_for_lm)<span class="sc">*</span>.<span class="dv">2</span>))</span>
-<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a><span class="co"># subset data for training set 80%</span></span>
-<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a>train_dat <span class="ot">&lt;-</span> data_for_lm <span class="sc">|&gt;</span> </span>
-<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">row_number</span>() <span class="sc">%in%</span> test.idx)</span>
-<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a><span class="co"># subset data for test set 20%</span></span>
-<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a>test_dat  <span class="ot">&lt;-</span> data_for_lm  <span class="sc">|&gt;</span> </span>
-<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%in%</span> test.idx)</span>
-<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_for_lm)</span>
-<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly partition into 10 folds </span></span>
-<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a>data_for_lm <span class="ot">&lt;-</span> data_for_lm <span class="sc">|&gt;</span> </span>
-<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fold =</span> <span class="fu">sample</span>(<span class="fu">rep_len</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">length.out =</span> n),</span>
-<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a>                       <span class="at">size =</span> n))</span>
-<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x, dataset){</span>
-<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a>  <span class="co"># separate fold (test) data</span></span>
-<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a>  fold_dat <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span> </span>
-<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(fold <span class="sc">==</span> x)</span>
-<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and training data</span></span>
-<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a>  train_dat <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span> </span>
-<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(fold <span class="sc">!=</span> x)</span>
-<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fit model with training data</span></span>
-<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a>  it_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(life_ex <span class="sc">~</span> income_share, </span>
-<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> train_dat)</span>
-<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate predictions for the held-out fold data</span></span>
-<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a>  fold_preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(it_lm, <span class="at">newdata =</span> fold_dat)</span>
-<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (<span class="fu">var</span>(fold_preds)<span class="sc">/</span><span class="fu">var</span>(fold_dat<span class="sc">$</span>life_ex))</span>
-<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a>cv_r2 <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="at">.x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a>        <span class="at">.f =</span> <span class="sc">~</span> <span class="fu">cv</span>(.x, data_for_lm))</span>
-<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">mean</span>(cv_r2))</span>
-<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a><span class="co">#Code for R squared plot</span></span>
-<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a>avg_r2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(cv_r2)</span>
-<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a>cv_r2_results <span class="ot">&lt;-</span> <span class="fu">enframe</span>(cv_r2, <span class="at">name =</span> <span class="st">&quot;fold&quot;</span>, <span class="at">value =</span> <span class="st">&quot;r_squared&quot;</span>)</span>
-<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a>cv_r2_results <span class="sc">|&gt;</span> </span>
-<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>r_squared)) <span class="sc">+</span></span>
-<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.02</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> avg_r2, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;R² Value&quot;</span>,</span>
-<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
-<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribution of R² Values from 10-Fold Cross-Validation&quot;</span>) <span class="sc">+</span></span>
-<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">14</span>)</span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly sample 20% of indices</span></span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a>test.idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data_for_lm), </span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="fu">floor</span>(<span class="fu">nrow</span>(data_for_lm)<span class="sc">*</span>.<span class="dv">2</span>))</span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a><span class="co"># subset data for training set 80%</span></span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a>train_dat <span class="ot">&lt;-</span> data_for_lm <span class="sc">|&gt;</span> </span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">row_number</span>() <span class="sc">%in%</span> test.idx)</span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a><span class="co"># subset data for test set 20%</span></span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a>test_dat  <span class="ot">&lt;-</span> data_for_lm  <span class="sc">|&gt;</span> </span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%in%</span> test.idx)</span>
+<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_for_lm)</span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly partition into 10 folds </span></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a>data_for_lm <span class="ot">&lt;-</span> data_for_lm <span class="sc">|&gt;</span> </span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fold =</span> <span class="fu">sample</span>(<span class="fu">rep_len</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">length.out =</span> n),</span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a>                       <span class="at">size =</span> n))</span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x, dataset){</span>
+<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a>  <span class="co"># separate fold (test) data</span></span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a>  fold_dat <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span> </span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(fold <span class="sc">==</span> x)</span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and training data</span></span>
+<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>  train_dat <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span> </span>
+<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(fold <span class="sc">!=</span> x)</span>
+<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fit model with training data</span></span>
+<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a>  it_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(life_ex <span class="sc">~</span> income_share, </span>
+<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> train_dat)</span>
+<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a>  <span class="co"># generate predictions for the held-out fold data</span></span>
+<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a>  fold_preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(it_lm, <span class="at">newdata =</span> fold_dat)</span>
+<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (<span class="fu">var</span>(fold_preds)<span class="sc">/</span><span class="fu">var</span>(fold_dat<span class="sc">$</span>life_ex))</span>
+<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a>cv_r2 <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="at">.x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a>        <span class="at">.f =</span> <span class="sc">~</span> <span class="fu">cv</span>(.x, data_for_lm))</span>
+<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a><span class="co">#Code for R squared plot</span></span>
+<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a>avg_r2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(cv_r2)</span>
+<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a>cv_r2_results <span class="ot">&lt;-</span> <span class="fu">enframe</span>(cv_r2, <span class="at">name =</span> <span class="st">&quot;fold&quot;</span>, <span class="at">value =</span> <span class="st">&quot;r_squared&quot;</span>)</span>
+<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a>cv_r2_results <span class="sc">|&gt;</span> </span>
+<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>r_squared)) <span class="sc">+</span></span>
+<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.02</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> avg_r2, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;R² Value&quot;</span>,</span>
+<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribution of R² Values from 10-Fold Cross-Validation&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a>The mean R² ≈ 0.178 suggests that the model explains about 17.8% of the variance in life expectancy. This is quite substantial considering that only one variable is being used to predict life expectancy, which is quite complex.</span>
+<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a>R² values range from 0.125 to 0.25 across the 10 folds. This moderate variability indicates that the model’s performance is relatively consistent across different training/testing splits. No folds produce drastically low or high R², which supports model stability.</span>
+<span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a>There is no  strong evidence of overfitting since R² values in cross-validation are consistent and not drastically lower than 0.178 (the mean). This means the model is generalizing reasonably well across folds.</span>
 <span id="cb9-241"><a href="#cb9-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-242"><a href="#cb9-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## Works Cited and Project References</span></span>
+<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
 <span id="cb9-244"><a href="#cb9-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a>GitHub Reference Link:</span>
-<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a>https://github.com/manavos/stat331-final-project.git</span>
-<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a>Chetty, Raj, et al. “The Association Between Income and Life Expectancy in the United States, 2001–2014.” JAMA, vol. 315, no. 16, 2016, pp. 1750–1766, doi:10.1001/jama.2016.4226.</span>
-<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a>Gapminder Foundation. “Gapminder Data.” Gapminder, https://www.gapminder.org/data/. </span>
+<span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a>Our analysis explored the relationship between the income share of the middle 20% and life expectancy at birth across countries from 1980 to 2023. After data cleaning, we found a consistent, positive relationship between these two variables. Despite working with only about 10% of the original dataset due to missing income data, the linear regression model revealed meaningful insights.</span>
+<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a>The model indicates that for every 1% increase in the income share of the middle 20%, life expectancy at birth increases by approximately 1.50 years. The model explains around 17.6% of the total variance in life expectancy, which is substantial considering the many factors involved—such as healthcare access, education, pandemics, and historical events like war and genocide. The total variability in life expectancy is 47.07 years, of which 8.27 years is explained by the income share of the middle 20% and 38.80 years is not explained by the model. </span>
+<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a>Cross-validation confirmed that the model&#39;s performance is stable across different data splits, with R² values ranging from 0.125 to 0.25 and a mean of 0.178. This suggests that the model generalizes well without signs of overfitting, though it is not highly predictive on its own. </span>
+<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a>Future studies could build on this by incorporating additional predictors such as education levels, healthcare access, and disaster events to develop more robust models. Nonetheless, our findings reinforce the idea that supporting the middle class may be a meaningful policy lever for improving life expectancy worldwide.</span>
+<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-251"><a href="#cb9-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a>Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, https://www.gapminder.org/data/documentation/gd004/. </span>
+<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a><span class="fu">## Works Cited and Project References</span></span>
 <span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a>United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf. </span>
-<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a>World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.10).” World Bank Data, https://data.worldbank.org/indicator/SI.DST.FRST.10. </span>
-<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a>Human Mortality Database. Accessed via Gapminder Foundation, https://www.gapminder.org/data/documentation/gd004/. </span>
+<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a>GitHub Reference Link:</span>
+<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://github.com/manavos/stat331-final-project.git&gt;</span></span>
+<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a>Chetty, Raj, et al. “The Association Between Income and Life Expectancy in the United States, 2001–2014.” JAMA, vol. 315, no. 16, 2016, pp. 1750–1766, doi:10.1001/jama.2016.4226.</span>
+<span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a>Gapminder Foundation. “Gapminder Data.” Gapminder, <span class="ot">&lt;https://www.gapminder.org/data/&gt;</span> </span>
+<span id="cb9-260"><a href="#cb9-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-261"><a href="#cb9-261" aria-hidden="true" tabindex="-1"></a>Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, <span class="ot">&lt;https://www.gapminder.org/data/documentation/gd004/&gt;</span></span>
+<span id="cb9-262"><a href="#cb9-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-263"><a href="#cb9-263" aria-hidden="true" tabindex="-1"></a>United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, <span class="ot">&lt;https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf&gt;</span> </span>
+<span id="cb9-264"><a href="#cb9-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-265"><a href="#cb9-265" aria-hidden="true" tabindex="-1"></a>World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.10).” World Bank Data, <span class="ot">&lt;https://data.worldbank.org/indicator/SI.DST.FRST.10&gt;</span> </span>
+<span id="cb9-266"><a href="#cb9-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-267"><a href="#cb9-267" aria-hidden="true" tabindex="-1"></a>Human Mortality Database. Accessed via Gapminder Foundation, <span class="ot">&lt;https://www.gapminder.org/data/documentation/gd004/&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

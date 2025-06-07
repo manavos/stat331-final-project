@@ -202,8 +202,6 @@ cv <- function(x, dataset){
 
 cv_r2 <- map_dbl(.x = 1:10,
         .f = ~ cv(.x, data_for_lm))
-kable(mean(cv_r2))
-
 ```
 ```{r}
 #Code for R squared plot
@@ -240,16 +238,16 @@ Future studies could build on this by incorporating additional predictors such a
 ## Works Cited and Project References
 
 GitHub Reference Link:
-https://github.com/manavos/stat331-final-project.git
+<https://github.com/manavos/stat331-final-project.git>
 
 Chetty, Raj, et al. “The Association Between Income and Life Expectancy in the United States, 2001–2014.” JAMA, vol. 315, no. 16, 2016, pp. 1750–1766, doi:10.1001/jama.2016.4226.
 
-Gapminder Foundation. “Gapminder Data.” Gapminder, https://www.gapminder.org/data/. 
+Gapminder Foundation. “Gapminder Data.” Gapminder, <https://www.gapminder.org/data/> 
 
-Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, https://www.gapminder.org/data/documentation/gd004/. 
+Gapminder Foundation. “Gapminder Data Documentation GD004.” Gapminder, <https://www.gapminder.org/data/documentation/gd004/>
 
-United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf. 
+United Nations, Department of Economic and Social Affairs, Population Division. World Population Prospects. Accessed via Gapminder Foundation, <https://www.gapminder.org/documentation/documentation/gapdoc004_v7.pdf> 
 
-World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.10).” World Bank Data, https://data.worldbank.org/indicator/SI.DST.FRST.10. 
+World Bank. “First-Time Fertility Rate Indicator (SI.DST.FRST.20).” World Bank Data, <https://data.worldbank.org/indicator/SI.DST.03RD.20> 
 
-Human Mortality Database. Accessed via Gapminder Foundation, https://www.gapminder.org/data/documentation/gd004/. 
+Human Mortality Database. Accessed via Gapminder Foundation, <https://www.gapminder.org/data/documentation/gd004/>
